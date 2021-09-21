@@ -1,17 +1,36 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import * as React from "react";
+import ReactDOM from "react-dom";
+import App from "./App.jsx";
+import { CssBaseline, GlobalStyles } from "@mui/material";
+import DarkModeProvider from "./Context/DarkModeContext";
+import { BrowserRouter as Router } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./store";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+const inputGlobalStyles = (
+  <GlobalStyles
+    styles={{
+      a: {
+        textDecoration: "none",
+        "&:active": { color: "inherit" },
+      },
+      body: {
+        overflowX: "hidden",
+      },
+    }}
+  />
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+ReactDOM.render(
+  <CssBaseline>
+    <DarkModeProvider>
+      <Router>
+        <Provider store={store}>
+          <App />
+          {inputGlobalStyles}
+        </Provider>
+      </Router>
+    </DarkModeProvider>
+  </CssBaseline>,
+  document.getElementById("root")
+);
