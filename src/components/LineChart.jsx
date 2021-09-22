@@ -41,12 +41,19 @@ function LineChart({ coinHistory, currentPrice, coinName }) {
   };
 
   return (
-    <>
-      <Box>
+    <Box sx={{ p: 2, mt: 5 }}>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          flexDirection: { xs: "column", sm: "row" },
+          justifyContent: { sm: "space-around", md: "space-between" },
+        }}
+      >
         <Typography variant="h5" component="div">
           {coinName} Price Chart
         </Typography>
-        <Box>
+        <Box sx={{ mt: { xs: 4, sm: 0 } }}>
           <Typography variant="body1" component="div">
             {coinHistory?.data?.change}%
           </Typography>
@@ -56,7 +63,7 @@ function LineChart({ coinHistory, currentPrice, coinName }) {
         </Box>
       </Box>
       <Line data={data} options={options} />
-    </>
+    </Box>
   );
 }
 

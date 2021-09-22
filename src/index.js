@@ -14,9 +14,6 @@ const inputGlobalStyles = (
         textDecoration: "none",
         "&:active": { color: "inherit" },
       },
-      body: {
-        overflowX: "hidden",
-      },
     }}
   />
 );

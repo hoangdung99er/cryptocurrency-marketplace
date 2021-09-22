@@ -39,8 +39,6 @@ function CryptoDetail() {
   });
   const [cryptoDetails, setCryptoDetails] = useState(null);
 
-  console.log(cryptoDetails);
-
   useEffect(() => {
     setCryptoDetails(data?.data?.coin);
   }, [data?.data?.coin]);
